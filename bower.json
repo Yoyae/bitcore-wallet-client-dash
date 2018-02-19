@@ -1,17 +1,17 @@
 {
-  "name": "bitcore-wallet-client-dash",
+  "name": "bitcore-wallet-client-monoeci",
   "main": "index.js",
   "version": "2.1.1",
-  "homepage": "https://github.com/dashpay/bitcore-wallet-client-dash",
+  "homepage": "https://github.com/Yoyae/bitcore-wallet-client-monoeci",
   "authors": ["BitPay Inc"],
-  "description": "Client for bitcore-wallet-service-dash",
+  "description": "Client for bitcore-wallet-service-monoeci",
   "keywords": [
-    "dash",
-    "copay-dash",
+    "monoeci",
+    "copay-monoeci",
     "multisig",
     "wallet",
     "client",
-    "bitcore-dash"
+    "bitcore-monoeci"
   ],
   "ignore": [
     "**/.*",
