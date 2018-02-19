@@ -1,4 +1,4 @@
-# Bitcore-Dash Wallet Client
+# Bitcore-Monoeci Wallet Client
 
 [![NPM Package](https://img.shields.io/npm/v/bitcore-wallet-client-monoeci.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-wallet-client-monoeci)
 [![Build Status](https://img.shields.io/travis/Yoyae/bitcore-wallet-client-monoeci.svg?branch=master&style=flat-square)](https://travis-ci.org/Yoyae/bitcore-wallet-client-monoeci)

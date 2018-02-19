@@ -15,7 +15,6 @@ var tingodb = require('tingodb')({
 
 var log = require('../lib/log');
 
-
 var Bitcore = require('bitcore-lib-monoeci');
 var Bitcore_ = {
   btc: Bitcore,
@@ -2332,7 +2331,6 @@ describe('client API', function() {
         done();
       });
     });
-
     it('Should create proposal with unconfirmed inputs', function(done) {
       var opts = {
         amount: 4.5e8,
@@ -2561,7 +2559,6 @@ describe('client API', function() {
       });
     });
   });
-
 
   describe('Transaction Proposal signing', function() {
     this.timeout(5000);
@@ -5170,6 +5167,7 @@ describe('client API', function() {
       });
     });
   });
+
   var addrMap = {
     btc: ['XdZgN4xhXASx1UKdnnDV9RXCaLCqnvDmZp','XoJGPKstMm965AmVzsBZG71HWMEU6CMpMq'],
     bch: ['CfNCvxmKYzZsS78pDKKfrDd2doZt3w4jUs','CXivsT4p9F6Us1oQGfo6oJpKiDovJjRVUE']

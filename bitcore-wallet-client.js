@@ -34415,7 +34415,7 @@ module.exports={
         "spec": ">=1.2.0 <2.0.0",
         "type": "range"
       },
-      "F:\\_2017\\Github\\namespace\\Dashevo\\bitcore-wallet-client-monoeci\\node_modules\\bip38"
+      "F:\\_2017\\Github\\namespace\\Yoyae\\bitcore-wallet-client-monoeci\\node_modules\\bip38"
     ]
   ],
   "_from": "bigi@>=1.2.0 <2.0.0",
@@ -34450,7 +34450,7 @@ module.exports={
   "_shasum": "9c665a95f88b8b08fc05cfd731f561859d725825",
   "_shrinkwrap": null,
   "_spec": "bigi@^1.2.0",
-  "_where": "F:\\_2017\\Github\\namespace\\Dashevo\\bitcore-wallet-client-monoeci\\node_modules\\bip38",
+  "_where": "F:\\_2017\\Github\\namespace\\Yoyae\\bitcore-wallet-client-monoeci\\node_modules\\bip38",
   "bugs": {
     "url": "https://github.com/cryptocoinjs/bigi/issues"
   },
@@ -52882,7 +52882,7 @@ module.exports={
         "spec": "https://registry.npmjs.org/elliptic/-/elliptic-3.0.3.tgz",
         "type": "remote"
       },
-      "F:\\_2017\\Github\\namespace\\Dashevo\\bitcore-wallet-client-monoeci\\node_modules\\bitcore-lib-monoeci"
+      "F:\\_2017\\Github\\namespace\\Yoyae\\bitcore-wallet-client-monoeci\\node_modules\\bitcore-lib-monoeci"
     ]
   ],
   "_from": "https://registry.npmjs.org/elliptic/-/elliptic-3.0.3.tgz",
@@ -52908,7 +52908,7 @@ module.exports={
   "_shasum": "865c9b420bfbe55006b9f969f97a0d2c44966595",
   "_shrinkwrap": null,
   "_spec": "elliptic@https://registry.npmjs.org/elliptic/-/elliptic-3.0.3.tgz",
-  "_where": "F:\\_2017\\Github\\namespace\\Dashevo\\bitcore-wallet-client-monoeci\\node_modules\\bitcore-lib-monoeci",
+  "_where": "F:\\_2017\\Github\\namespace\\Yoyae\\bitcore-wallet-client-monoeci\\node_modules\\bitcore-lib-monoeci",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -53694,7 +53694,7 @@ arguments[4][103][0].apply(exports,arguments)
     var objToString = objectProto.toString;
 
     /** Used to restore the original `_` reference in `_.noConflict`. */
-    var oldDash = root._;
+    var oldMonoeci = root._;
 
     /** Used to detect if a method is native. */
     var reIsNative = RegExp('^' +
@@ -64346,7 +64346,7 @@ arguments[4][103][0].apply(exports,arguments)
      * var lodash = _.noConflict();
      */
     function noConflict() {
-      root._ = oldDash;
+      root._ = oldMonoeci;
       return this;
     }
 
@@ -66519,7 +66519,7 @@ module.exports.AES_ROUND_NOKEY_LE = function(X, Y) {
 ///////////////  Blake //////////////
 
 //// Written by Quantum Explorer ////
-////////// Dash Foundation //////////
+////////// Monoeci Team //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -66745,7 +66745,7 @@ module.exports = function(input, format, output) {
 //////////////  BMW /////////////////
 
 //// Written by Quantum Explorer ////
-////////// Dash Foundation //////////
+////////// Monoeci Team //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -67103,7 +67103,7 @@ module.exports = function(input, format, output) {
 ////////////  Cubehash //////////////
 
 //// Written by Quantum Explorer ////
-////////// Dash Foundation //////////
+////////// Monoeci Team //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -67435,7 +67435,7 @@ module.exports = function(input, format, output) {
 ///////////////  Echo ///////////////
 
 //// Written by Quantum Explorer ////
-////////// Dash Foundation //////////
+////////// Monoeci Team //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -67722,7 +67722,7 @@ module.exports = function(input, format, output) {
 ////////////  groestl ///////////////
 
 //// Written by Quantum Explorer ////
-////////// Dash Foundation //////////
+////////// Monoeci Team //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -69144,7 +69144,7 @@ module.exports.string2Int32Buffer = function (s) {
 ///////////////  Jh /////////////////
 
 //// Written by Quantum Explorer ////
-////////// Dash Foundation //////////
+////////// Monoeci Team //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -70145,7 +70145,7 @@ module.exports = methods;
 //////////////  Luffa ///////////////
 
 //// Written by Quantum Explorer ////
-////////// Dash Foundation //////////
+////////// Monoeci Team //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -71065,7 +71065,7 @@ module.exports.xORTable = function(d, s1, s2, len) {
 ////////////  Shavite ///////////////
 
 //// Written by Quantum Explorer ////
-////////// Dash Foundation //////////
+////////// Monoeci Team //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -71761,7 +71761,7 @@ module.exports = function(input, format, output) {
 //////////////  Simd ///////////////
 
 //// Written by Quantum Explorer ////
-////////// Dash Foundation //////////
+////////// Monoeci Team //////////
 /// Released under the MIT License //
 /////////////////////////////////////
 
@@ -72462,7 +72462,7 @@ module.exports={
         "spec": ">=0.14.3 <0.15.0",
         "type": "range"
       },
-      "F:\\_2017\\Github\\namespace\\Dashevo\\bitcore-wallet-client-monoeci"
+      "F:\\_2017\\Github\\namespace\\Yoyae\\bitcore-wallet-client-monoeci"
     ]
   ],
   "_from": "bitcore-lib-monoeci@>=0.14.3 <0.15.0",
@@ -72556,7 +72556,7 @@ module.exports={
     }
   },
   "_spec": "bitcore-lib-monoeci@^0.14.3",
-  "_where": "F:\\_2017\\Github\\namespace\\Dashevo\\bitcore-wallet-client-monoeci",
+  "_where": "F:\\_2017\\Github\\namespace\\Yoyae\\bitcore-wallet-client-monoeci",
   "author": {
     "name": "BitPay",
     "email": "dev@bitpay.com"
@@ -72635,7 +72635,7 @@ module.exports={
     "sha512": "=0.0.1",
     "x11-hash-js": "^1.0.0"
   },
-  "description": "A pure and powerful JavaScript Dash library.",
+  "description": "A pure and powerful JavaScript Monoeci library.",
   "devDependencies": {
     "bitcore-build-monoeci": "github:Yoyae/bitcore-build-monoeci",
     "brfs": "^1.2.0",
@@ -84863,7 +84863,7 @@ module.exports = require("./src/preconditions");
     var objectProto = Object.prototype;
 
     /** Used to restore the original `_` reference in `noConflict` */
-    var oldDash = context._;
+    var oldMonoeci = context._;
 
     /** Used to resolve the internal [[Class]] of values */
     var toString = objectProto.toString;
@@ -90352,7 +90352,7 @@ module.exports = require("./src/preconditions");
      * var lodash = _.noConflict();
      */
     function noConflict() {
-      context._ = oldDash;
+      context._ = oldMonoeci;
       return this;
     }
 
