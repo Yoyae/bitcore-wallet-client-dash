@@ -17,8 +17,8 @@ var log = require('../lib/log');
 
 var Bitcore = require('bitcore-lib-monoeci');
 var Bitcore_ = {
-  btc: Bitcore,
-  bch: require('bitcore-lib-cash'),
+  xmcc: Bitcore,
+  xmcc: require('bitcore-lib-cash'),
 };
 
 
@@ -38,11 +38,11 @@ var Errors = require('../lib/errors');
 
 var helpers = {};
 
-helpers.toSatoshi = function(btc) {
-  if (_.isArray(btc)) {
-    return _.map(btc, helpers.toSatoshi);
+helpers.toSatoshi = function(xmcc) {
+  if (_.isArray(xmcc)) {
+    return _.map(xmcc, helpers.toSatoshi);
   } else {
-    return parseFloat((btc * 1e8).toPrecision(12));
+    return parseFloat((xmcc * 1e8).toPrecision(12));
   }
 };
 
@@ -81,10 +81,10 @@ helpers.newDb = function() {
 
 helpers.generateUtxos = function(scriptType, publicKeyRing, path, requiredSignatures, amounts, coin) {
   var amounts = [].concat(amounts);
-  var coin = coin || 'btc';
+  var coin = coin || 'xmcc';
 
-  if (coin == 'bch') {
-    var bitcore = Bitcore_.bch;
+  if (coin == 'xmcc') {
+    var bitcore = Bitcore_.xmcc;
   } else {
     var bitcore = Bitcore;
   }
@@ -126,7 +126,7 @@ helpers.createAndJoinWallet = function(clients, m, n, opts, cb) {
 
   opts = opts || {};
 
-  var coin = opts.coin || 'btc';
+  var coin = opts.coin || 'xmcc';
   var network = opts.network || 'testnet';
 
   clients[0].seedFromRandomWithMnemonic({
@@ -932,7 +932,7 @@ describe('client API', function() {
         var signatures = Client.signTxp(txp, derivedPrivateKey['BIP44']);
         signatures.length.should.be.equal(utxos.length);
       });
-      it('should sign btc proposal correctly', function() {
+      it('should sign xmcc proposal correctly', function() {
         var toAddress = 'yie4Ubd2ieCdzqwNyAc8QRutfri3E9ChTm';
         var changeAddress = 'yd1ctBBVpugG8EThogVdRm1mpHAJkRETD9';
 
@@ -967,18 +967,18 @@ describe('client API', function() {
         signatures[0].should.equal('304502210087b754a017f424cbffc83decdac1b944ba249bdb26be1c790f752186a59a896e02204ce981f3cb2d7491ebe868a6dc5b93a64d6b0a72de3d4288af1f1701c20f2217');
         // signatures[1].should.equal('3044022069cf6e5d8700ff117f754e4183e81690d99d6a6443e86c9589efa072ecb7d82c02204c254506ac38774a2176f9ef56cc239ef7867fbd24da2bef795128c75a063301'); // this generates a unique TXID every time which changes the signature
       });
-      it('should sign BCH proposal correctly', function() {
+      it('should sign XMCC proposal correctly', function() {
         var toAddress = 'msj42CCGruhRsFrGATiUuh25dtxYtnpbTx';
         var changeAddress = 'msj42CCGruhRsFrGATiUuh25dtxYtnpbTx';
 
         var publicKeyRing = [{
-          xPubKey: new Bitcore_.bch.HDPublicKey(derivedPrivateKey['BIP44']),
+          xPubKey: new Bitcore_.xmcc.HDPublicKey(derivedPrivateKey['BIP44']),
         }];
 
-        var utxos = helpers.generateUtxos('P2PKH', publicKeyRing, 'm/1/0', 1, [2000], 'bch');
+        var utxos = helpers.generateUtxos('P2PKH', publicKeyRing, 'm/1/0', 1, [2000], 'xmcc');
         var txp = {
           version: 3,
-          coin: 'bch',
+          coin: 'xmcc',
           inputs: utxos,
           outputs: [{
             toAddress: toAddress,
@@ -1013,7 +1013,7 @@ describe('client API', function() {
         var walletId = Uuid.v4();
         var walletPrivKey = new Bitcore.PrivateKey();
         var network = i % 2 == 0 ? 'testnet' : 'livenet';
-        var coin = i % 3 == 0 ? 'bch' : 'btc';
+        var coin = i % 3 == 0 ? 'xmcc' : 'xmcc';
         var secret = Client._buildSecret(walletId, walletPrivKey, coin, network);
         var result = Client.parseSecret(secret);
         result.walletId.should.equal(walletId);
@@ -1031,7 +1031,7 @@ describe('client API', function() {
     it('should create secret and parse secret from string', function() {
       var walletId = Uuid.v4();
       var walletPrivKey = new Bitcore.PrivateKey();
-      var coin = 'btc';
+      var coin = 'xmcc';
       var network = 'testnet';
       var secret = Client._buildSecret(walletId, walletPrivKey.toString(), coin, network);
       var result = Client.parseSecret(secret);
@@ -1040,9 +1040,9 @@ describe('client API', function() {
       result.coin.should.equal(coin);
       result.network.should.equal(network);
     });
-    it('should default to btc for secrets not specifying coin', function() {
-      var result = Client.parseSecret('nv5RGTN5C8gxnZFD4bHBK0XFeY7Jvakn9SBZtrFz83Yn1HdKDfRyHAhGwaFKFw2HHuTBo1Vm78Tbtc');
-      result.coin.should.equal('btc');
+    it('should default to xmcc for secrets not specifying coin', function() {
+      var result = Client.parseSecret('nv5RGTN5C8gxnZFD4bHBK0XFeY7Jvakn9SBZtrFz83Yn1HdKDfRyHAhGwaFKFw2HHuTBo1Vm78Txmcc');
+      result.coin.should.equal('xmcc');
     });
   });
 
@@ -1178,36 +1178,36 @@ describe('client API', function() {
         });
       });
     });
-    it('should create Bitcoin Cash wallet', function(done) {
+    it('should create Monoeci Cash wallet', function(done) {
       clients[0].seedFromRandomWithMnemonic({
-        coin: 'bch'
+        coin: 'xmcc'
       });
       clients[0].createWallet('mycashwallet', 'pepe', 1, 1, {
-        coin: 'bch'
+        coin: 'xmcc'
       }, function(err, secret) {
         should.not.exist(err);
         clients[0].getStatus({}, function(err, status) {
           should.not.exist(err);
-          status.wallet.coin.should.equal('bch');
+          status.wallet.coin.should.equal('xmcc');
           done();
         })
       });
     });
 
-    it('should create a BCH  address correctly', function(done) {
+    it('should create a XMCC  address correctly', function(done) {
       var xPriv = 'xprv9s21ZrQH143K3GJpoapnV8SFfukcVBSfeCficPSGfubmSFDxo1kuHnLisriDvSnRRuL2Qrg5ggqHKNVpxR86QEC8w35uxmGoggxtQTPvfUu';
       clients[0].seedFromExtendedPrivateKey(xPriv, {
-        'coin': 'bch',
+        'coin': 'xmcc',
       });
       clients[0].createWallet('mycashwallet', 'pepe', 1, 1, {
-        coin: 'bch'
+        coin: 'xmcc'
       }, function(err, secret) {
         should.not.exist(err);
 
         clients[0].createAddress(function(err, x) {
           should.not.exist(err);
           should.not.exist(err);
-          x.coin.should.equal('bch');
+          x.coin.should.equal('xmcc');
           x.network.should.equal('livenet');
           x.address.should.equal('CcJ4qUfyQ8x5NwhAeCQkrBSWVeXxXghcNz');
           done();
@@ -1656,24 +1656,24 @@ describe('client API', function() {
   });
 
   describe('Network fees', function() {
-    it('should get current fee levels for BTC', function(done) {
+    it('should get current fee levels for XMCC', function(done) {
       blockchainExplorerMock.setFeeLevels({
         1: 40000,
         3: 20000,
         10: 18000,
       });
       clients[0].credentials = {};
-      clients[0].getFeeLevels('btc', 'livenet', function(err, levels) {
+      clients[0].getFeeLevels('xmcc', 'livenet', function(err, levels) {
         should.not.exist(err);
         should.exist(levels);
         _.difference(['priority', 'normal', 'economy'], _.map(levels, 'level')).should.be.empty;
         done();
       });
     });
-    it('should get default fee levels for BCH', function(done) {
+    it('should get default fee levels for XMCC', function(done) {
       blockchainExplorerMock.setFeeLevels({});
       clients[0].credentials = {};
-      clients[0].getFeeLevels('bch', 'livenet', function(err, levels) {
+      clients[0].getFeeLevels('xmcc', 'livenet', function(err, levels) {
         should.not.exist(err);
         should.exist(levels);
         levels[0].level.should.equal('normal');
@@ -2577,9 +2577,9 @@ describe('client API', function() {
       });
     };
 
-    describe('BTC', function(done) {
+    describe('XMCC', function(done) {
       beforeEach(function(done) {
-        setup(2, 3, 'btc', 'testnet', done);
+        setup(2, 3, 'xmcc', 'testnet', done);
       });
 
       it('Should sign proposal', function(done) {
@@ -2692,9 +2692,9 @@ describe('client API', function() {
 
     });
 
-    describe('BCH', function(done) {
+    describe('XMCC', function(done) {
       beforeEach(function(done) {
-        setup(1, 1, 'bch', 'livenet', done);
+        setup(1, 1, 'xmcc', 'livenet', done);
       });
 
       it('Should sign proposal', function(done) {
@@ -2709,7 +2709,7 @@ describe('client API', function() {
           }],
           feePerKb: 100e2,
           message: 'just some message',
-          coin: 'bch',
+          coin: 'xmcc',
         };
         clients[0].createTxProposal(opts, function(err, txp) {
           should.not.exist(err);
@@ -5169,12 +5169,12 @@ describe('client API', function() {
   });
 
   var addrMap = {
-    btc: ['XdZgN4xhXASx1UKdnnDV9RXCaLCqnvDmZp','XoJGPKstMm965AmVzsBZG71HWMEU6CMpMq'],
-    bch: ['CfNCvxmKYzZsS78pDKKfrDd2doZt3w4jUs','CXivsT4p9F6Us1oQGfo6oJpKiDovJjRVUE']
+    xmcc: ['XdZgN4xhXASx1UKdnnDV9RXCaLCqnvDmZp','XoJGPKstMm965AmVzsBZG71HWMEU6CMpMq'],
+    xmcc: ['CfNCvxmKYzZsS78pDKKfrDd2doZt3w4jUs','CXivsT4p9F6Us1oQGfo6oJpKiDovJjRVUE']
   };
-  _.each(['bch', 'btc'], function(coin) {
+  _.each(['xmcc', 'xmcc'], function(coin) {
     var addr= addrMap[coin];
-    if (coin == 'bch') {
+    if (coin == 'xmcc') {
       var privKey = '5KjBgBiadWGhjWmLN1v4kcEZqWSZFqzgv7cSUuZNJg4tD82c4xp';
     } else {
       var privKey = '7rbhiE3dyvQ9xCpBXjC5VbAdfR96vahS1o3kRStDvRubXnZ1WaM';
@@ -5294,15 +5294,15 @@ describe('client API', function() {
         }],
         expected: '0.01',
       }, {
-        args: [1, 'btc'],
+        args: [1, 'xmcc'],
         expected: '0.00',
       }, {
-        args: [1, 'btc', {
+        args: [1, 'xmcc', {
           fullPrecision: true
         }],
         expected: '0.00000001',
       }, {
-        args: [1234567899999, 'btc', {
+        args: [1234567899999, 'xmcc', {
           thousandsSeparator: ' ',
           decimalSeparator: ','
         }],
