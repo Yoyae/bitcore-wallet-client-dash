@@ -2,7 +2,7 @@
   "name": "bitcore-wallet-client-monoeci",
   "description": "Client for bitcore-wallet-service-monoeci",
   "author": "BitPay Inc",
-  "version": "6.6.4",
+  "version": "6.5.0",
   "license": "MIT",
   "keywords": [
     "monoeci",
@@ -17,19 +17,19 @@
   "engine": "node >= 8.0.0",
   "main": "index.js",
   "repository": {
-    "url": "git@github.com/Yoyae/bitcore-wallet-client-monoeci.git",
+    "url": "git+ssh://git@github.com/yoyae/bitcore-wallet-client-monoeci.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/Yoyae/bitcore-wallet-client-monoeci/issues"
+    "url": "https://github.com/yoyae/bitcore-wallet-client-monoeci/issues"
   },
   "dependencies": {
     "async": "^0.9.0",
     "bip38": "^1.3.0",
-    "bitcore-lib-monoeci": "github:Yoyae/bitcore-lib-monoeci",
-    "bitcore-lib-cash": "^0.16.1",
-    "bitcore-mnemonic-monoeci": "github:Yoyae/bitcore-mnemonic-monoeci",
-    "bitcore-payment-protocol-monoeci": "github:Yoyae/bitcore-payment-protocol-monoeci",
+    "bitcore-lib-monoeci": "github:yoyae/bitcore-lib-monoeci",
+    "bitcore-mnemonic-monoeci": "github:yoyae/bitcore-mnemonic-monoeci",
+    "bitcore-payment-protocol-monoeci": "github:yoyae/bitcore-payment-protocol-monoeci",
+    "grunt-jsdox": "matiu/grunt-jsdox#update/jsdoc-4.10",
     "json-stable-stringify": "^1.0.0",
     "lodash": "^4.17.4",
     "preconditions": "^1.0.8",
@@ -37,18 +37,18 @@
     "superagent": "^3.4.1"
   },
   "devDependencies": {
-    "bitcore-wallet-service-monoeci": "github:Yoyae/bitcore-wallet-service-monoeci",
+    "bitcore-wallet-service-monoeci": "github:yoyae/bitcore-wallet-service-monoeci",
     "browserify": "^13.1.0",
     "chai": "^1.9.1",
     "coveralls": "^2.11.2",
+    "grunt": "~0.4.0",
     "istanbul": "*",
     "mocha": "^1.18.2",
     "sinon": "^1.10.3",
     "supertest": "^3.0.0",
     "tingodb": "^0.3.4",
     "uglify": "^0.1.1",
-    "uuid": "^2.0.1",
-	"grunt-jsdox": "matiu/grunt-jsdox#update/jsdoc-4.10"
+    "uuid": "^2.0.1"
   },
   "scripts": {
     "start": "node app.js",
