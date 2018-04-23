@@ -29,7 +29,7 @@
     "bitcore-lib-monoeci": "github:Yoyae/bitcore-lib-monoeci",
     "bitcore-lib-cash": "^0.16.1",
     "bitcore-mnemonic-monoeci": "github:Yoyae/bitcore-mnemonic-monoeci",
-    "bitcore-payment-protocol-monoeci": "github:Yoyae/bitcore-payment-protocol-monoeci",
+    "bitcore-payment-protocol-monoeci": "github:Yoyae/bitcore-payment-protocol-monoeci#V3",
     "json-stable-stringify": "^1.0.0",
     "lodash": "^4.17.4",
     "preconditions": "^1.0.8",
@@ -37,7 +37,7 @@
     "superagent": "^3.4.1"
   },
   "devDependencies": {
-    "bitcore-wallet-service-monoeci": "github:Yoyae/bitcore-wallet-service-monoeci",
+    "bitcore-wallet-service-monoeci": "github:Yoyae/bitcore-wallet-service-monoeci#V3",
     "browserify": "^13.1.0",
     "chai": "^1.9.1",
     "coveralls": "^2.11.2",
